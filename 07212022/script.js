@@ -21,18 +21,19 @@ function main(input) {
   let progressArr = [];
   for (i = 0; i <= stream.length - 1; i++) {
     progressArr.push(stream[i]);
-    let median;
+    progressArr.sort();
+    let median = 0;
     if (i === 0) {
+      console.log(progressArr[0]);
     } else if (i === 1) {
-      median = (progressArr[0] + progressArr[i]) / 2;
+      median = (parseInt(progressArr[0]) + parseInt(progressArr[i])) / 2;
       console.log(median);
     }
     // otherwise figure out if even or odd and find median from there
     else {
-      progressArr.sort();
       const midIndex = Math.floor(progressArr.length / 2);
       if (progressArr.length % 2 !== 0) {
-        median = progressArr[midIndex];
+        median = parseInt(progressArr[midIndex]);
         console.log(parseInt(median));
       } else {
         median =
